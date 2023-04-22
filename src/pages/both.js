@@ -5,17 +5,15 @@ import Settings from '@/components/Settings';
 import Weather from '@/components/Weather';
 
 const Page = () => {
-    const [city, setCity] = useState("Mumbai");
-    const [country, setCountry] = useState("India")
     const [isToggled, setIsToggled] = useState(false)
     return (
         <main className='bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 flex justify-center items-center flex-col w-screen'>
             <Header isToggled={isToggled} setIsToggled={setIsToggled} />
             <div className="flex justify-around items-center w-full">
-                <Weather city={city} isBoth/>
-                <Currency country={country} isBoth/>
+                <Weather isBoth/>
+                <Currency isBoth/>
             </div>
-            {isToggled && <Settings setCity={setCity} setCountry={setCountry} />}
+            {isToggled && <Settings />}
         </main>
     )
 }

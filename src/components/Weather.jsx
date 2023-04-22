@@ -7,6 +7,7 @@ import Today from "./Today";
 import axios from "axios";
 import Loading from "./Loading";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 const formatDate = (dateStr) => {
   const months = [
@@ -32,7 +33,8 @@ const formatDate = (dateStr) => {
   return `${day}, ${dayOfMonth} ${month}`;
 };
 
-const Weather = ({ city, isBoth }) => {
+const Weather = ({ isBoth }) => {
+  const { city } = useSelector((state) => state.widgetReducer);
   const [data, setData] = useState(null);
   const [forecast, setForecast] = useState(null);
   useEffect(() => {

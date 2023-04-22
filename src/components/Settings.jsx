@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
-const Settings = ({ setCity, setShow, setCountry, isToggled }) => {
+const Settings = ({ isToggled }) => {
   const cityArr = [
     "Mumbai",
     "New York",
@@ -23,13 +24,14 @@ const Settings = ({ setCity, setShow, setCountry, isToggled }) => {
   ];
   const router = useRouter();
   const [value, setValue] = useState("");
+  const dispatch = useDispatch();
   return (
     <div
       className={`bg-[#1F2937] px-10 py-5 absolute top-[3.5rem] lg:right-[18rem] md:right-[3rem] ${
         isToggled ? "hidden" : ""
       }`}
     >
-      <div class="bg-[#1F2937] rounded-md shadow-md px-8 py-6">
+      <div class="bg-[#1F2937] rounded-md shadow-md md:px-8 py-6">
         <h2 class="text-lg font-medium mb-4">Currency Converter</h2>
         <div class="grid grid-cols-2 gap-4">
           <div>
@@ -40,7 +42,12 @@ const Settings = ({ setCity, setShow, setCountry, isToggled }) => {
               id="city"
               name="city"
               class="border-gray-300 border-2 bg-[#1F2937] rounded-md shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50 w-full"
-              onChange={(e) => setCity(e.target.value)}
+              onChange={(e) =>
+                dispatch({
+                  type: "updateCity",
+                  payload: e.target.value,
+                })
+              }
             >
               {" "}
               {cityArr.map((c) => {
@@ -60,7 +67,12 @@ const Settings = ({ setCity, setShow, setCountry, isToggled }) => {
               id="country"
               name="to"
               class="border-2 border-gray-300 bg-[#1F2937] rounded-md shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50 w-full"
-              onChange={(e) => setCountry(e.target.value)}
+              onChange={(e) =>
+                dispatch({
+                  type: "updateCountry",
+                  payload: e.target.value,
+                })
+              }
             >
               <option className="bg-[#1F2937]" value="India">
                 Indian Rupee (INR)

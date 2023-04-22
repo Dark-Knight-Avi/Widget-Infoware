@@ -10,8 +10,8 @@ const Page = () => {
     return (
         <main className='bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 flex justify-center items-center flex-col'>
             <Header isToggled={isToggled} setIsToggled={setIsToggled} />
-            <Currency country={country} />
-            {isToggled && <Settings setCity={setCity} setCountry={setCountry} />}
+            <Currency />
+            {isToggled && <Settings />}
         </main>
     )
 }

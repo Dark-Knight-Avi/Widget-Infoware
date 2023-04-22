@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import React from "react";
+import { useSelector } from "react-redux";
 
-const Currency = ({ country = "India", isBoth }) => {
+const Currency = ({ isBoth }) => {
   const [rates, setRates] = useState(null);
+  const { country } = useSelector((state) => state.widgetReducer);
   const cArr = [
     "India",
     "UnitedStates",
@@ -76,4 +78,3 @@ const Currency = ({ country = "India", isBoth }) => {
 };
 
 export default Currency;
-  
