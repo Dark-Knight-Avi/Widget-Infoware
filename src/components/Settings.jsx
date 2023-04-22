@@ -25,7 +25,7 @@ const Settings = ({ setCity, setShow, setCountry, isToggled }) => {
   const [value, setValue] = useState("");
   return (
     <div
-      className={`bg-[#1F2937] px-10 py-5 absolute top-[3.5rem] right-[18rem] ${
+      className={`bg-[#1F2937] px-10 py-5 absolute top-[3.5rem] lg:right-[18rem] md:right-[3rem] ${
         isToggled ? "hidden" : ""
       }`}
     >
