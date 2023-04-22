@@ -101,7 +101,12 @@ const Settings = ({ isToggled }) => {
             <label for="country" class="block font-medium mb-2">
               View
             </label>
-            <select
+            <div className="w-full flex justify-between items-center">
+              <Link className="px-3 py-2 border-2 border-white rounded-md" href={'/'}>Weather</Link>
+              <Link className="px-3 py-2 border-2 border-white rounded-md" href={'/currency'}>Currency</Link>
+              <Link className="px-3 py-2 border-2 border-white rounded-md" href={'/both'}>Both</Link>
+            </div>
+            {/* <select
               id="country"
               name="to"
               class="border-2 border-gray-300 bg-[#1F2937] rounded-md shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50 w-full"
@@ -123,7 +128,7 @@ const Settings = ({ isToggled }) => {
               <option className="bg-[#1F2937]" value="both">
                 Both
               </option>
-            </select>
+            </select> */}
           </div>
         </div>
       </div>
